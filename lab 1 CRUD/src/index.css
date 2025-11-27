@@ -1,68 +1,131 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+/* ------------------------------
+   APPLE GLOBAL STYLE RESET
+--------------------------------*/
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+               "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.3px;
 }
 
+/* Fondo estilo macOS */
+body {
+  background: linear-gradient(135deg, #f5f5f7, #e9e9ee);
+  color: #1c1c1e;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------
+   CONTAINER PRINCIPAL
+--------------------------------*/
+.app-container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 30px;
+  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.08),
+    0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Títulos estilo Apple */
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 34px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 20px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* ------------------------------
+   INPUT + BUTTONS iOS STYLE
+--------------------------------*/
+input {
+  width: 70%;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid #d2d2d7;
+  font-size: 16px;
+  background: rgba(255,255,255,0.7);
+  transition: 0.2s ease;
+  outline: none;
+}
+
+input:focus {
+  border-color: #0071e3;
+  box-shadow: 0 0 0 3px rgba(0,113,227,0.25);
+}
+
+/* Botón estilo iOS 17 */
+.button-primary {
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: #0071e3;
+  border: none;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 3px 10px rgba(0,113,227,0.3);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.button-primary:hover {
+  background: #147ce5;
+  transform: translateY(-1px);
+}
+
+/* ------------------------------
+   LISTA ESTILO iOS APPS
+--------------------------------*/
+ul {
+  margin-top: 25px;
+  list-style: none;
+}
+
+li {
+  background: rgba(255, 255, 255, 0.65);
+  padding: 14px 20px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 
+    0 4px 14px rgba(0,0,0,0.08),
+    inset 0 0 0 0.5px rgba(255,255,255,0.6);
+}
+
+/* Botones de acciones estilo macOS */
+.action-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: 0.15s ease;
+  font-weight: 500;
+}
+
+.edit-btn {
+  background: #f7d774;
+  color: #5c4500;
+}
+
+.edit-btn:hover {
+  background: #ffe58f;
+}
+
+.delete-btn {
+  background: #ff3b30;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #ff453a;
 }
