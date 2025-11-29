@@ -1,68 +1,217 @@
+/* ----------------------------
+   APPLE INSPIRED GLOBAL THEME
+----------------------------- */
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+               system-ui, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(0, 0, 0, 0.85);
+  background: linear-gradient(145deg, #f5f5f7, #eaeaef);
 
-  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --apple-blue: #0071e3;
+  --apple-blue-hover: #0a84ff;
+
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.6);
+
+  --card-bg: rgba(255, 255, 255, 0.55);
+  --card-border: rgba(255, 255, 255, 0.5);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+/* ----------------------------
+   LIGHT MODE
+----------------------------- */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #1c1c1e;
+    background: linear-gradient(135deg, #fafafa, #f2f2f5);
+  }
 }
-a:hover {
-  color: #535bf2;
+
+/* ----------------------------
+   DARK MODE
+----------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f2f2f7;
+    background: linear-gradient(135deg, #1c1c1e, #2c2c2e);
+
+    --glass-bg: rgba(50, 50, 50, 0.35);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    --card-bg: rgba(40, 40, 40, 0.5);
+    --card-border: rgba(255, 255, 255, 0.08);
+  }
 }
+
+/* ----------------------------
+   BASE LAYOUT
+----------------------------- */
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  place-items: start;
+  justify-content: center;
+  padding: 40px 12px;
   min-height: 100vh;
 }
 
+/* ----------------------------
+   TYPOGRAPHY + LINKS
+----------------------------- */
+
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 18px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+a {
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: var(--apple-blue);
+  text-decoration: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+a:hover {
+  color: var(--apple-blue-hover);
+}
+
+/* ----------------------------
+   BUTTONS (Apple style)
+----------------------------- */
+
+button,
+.btn {
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease;
+}
+
+/* Primary blue button (iOS/macOS) */
+.btn-primary {
+  background: var(--apple-blue);
+  color: white;
+  box-shadow: 0 3px 10px rgba(0, 113, 227, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--apple-blue-hover);
+}
+
+/* Neutral button */
+.btn-secondary {
+  background: rgba(180, 180, 180, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  color: inherit;
+}
+
+.btn-secondary:hover {
+  background: rgba(180, 180, 180, 0.45);
+}
+
+/* Edit button (Yellow Notes-like) */
+.btn-edit {
+  background: #f7d774;
+  color: #5c4500;
+}
+
+/* Delete button (iOS red) */
+.btn-delete {
+  background: #ff3b30;
+  color: white;
+}
+
+/* ----------------------------
+   FORM CARD (Glassmorphism)
+----------------------------- */
+
+.country-form.card {
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 25px;
+
+  background: var(--card-bg);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--card-border);
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/* ----------------------------
+   FORM GROUP
+----------------------------- */
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #d2d2d7;
+  transition: 0.2s ease;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+}
+
+.form-group input:focus {
+  border-color: var(--apple-blue);
+  box-shadow: 0 0 0 3px rgba(0,113,227,0.25);
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* ----------------------------
+   TABLE (Apple UI)
+----------------------------- */
+
+.country-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.country-table th {
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(12px);
+  padding: 12px;
+  text-align: left;
+  font-weight: 700;
+}
+
+.country-table td {
+  padding: 12px;
+  background: rgba(255,255,255,0.4);
+}
+
+.country-table tr:nth-child(even) td {
+  background: rgba(240,240,240,0.55);
 }
